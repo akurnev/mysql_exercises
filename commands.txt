@@ -1,0 +1,43 @@
+Create database:
+--------------------------------------------------------
+mysql> CREATE DATABASE ;
+
+Use database:
+--------------------------------------------------------
+mysql> USE sales;
+
+Create table:
+--------------------------------------------------------
+mysql> CREATE TABLE Salespeople (snum INT, sname VARCHAR(20), city VARCHAR(20), comm FLOAT(2));
+mysql> CREATE TABLE Orders (onum INT, amt FLOAT(2), odate DATE, cnum INT, snum INT);
+mysql> CREATE TABLE Customers (cnum INT, cname VARCHAR(20), city VARCHAR(20), rating INT, snum INT);
+
+Simple query:
+--------------------------------------------------------
+mysql> SELECT snum, sname, city, comm FROM Salespeople;
+mysql> SELECT snum, sname, city, comm FROM Salespeople WHERE snum = 1001;
+mysql> SELECT snum, sname, city, comm FROM Salespeople WHERE city = 'London';
+
+Remove TABLE
+--------------------------------------------------------
+mysql> DROP TABLE table
+
+Remove database:
+--------------------------------------------------------
+mysql> DROP DATABASE sales;
+
+Show databases:
+--------------------------------------------------------
+mysql> SHOW DATABASES;
+
+LOAD data into TABLE (using file)
+--------------------------------------------------------
+mysql> LOAD DATA LOCAL INFILE "/home/akurnev/Mysql/Salespeople.txt" INTO TABLE Salespeople;
+
+INSERT string into TABLE
+--------------------------------------------------------
+mysql> INSERT INTO Salespeople VALUES ('1005', 'Anton', 'Nizhny Novgorod', '0.75');
+
+Remove duplicates in output
+--------------------------------------------------------
+SELECT DISTINCT snum FROM Orders;
